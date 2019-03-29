@@ -121,7 +121,7 @@ There are some restrictions when using an `awsElasticBlockStore` volume:
 Before you can use an EBS volume with a Pod, you need to create it.
 
 ```shell
-aws ec2 create-volume --availability-zone=eu-west-1a --size=10 --volume-type=gp2
+aws ec2 create-volume --availability-zone=eu-west-1a --size=10 --volume-type=gp2 --tag-specifications='ResourceType=volume,Tags=[{Key=KubernetesCluster,Value=<clustername-here>}]'
 ```
 
 Make sure the zone matches the zone you brought up your cluster in.  (And also check that the size and EBS volume
